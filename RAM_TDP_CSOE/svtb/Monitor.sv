@@ -1,6 +1,6 @@
 `define MON_IF vif.MONITOR.monitor_cb
 class monitor;
-   virtual ram_vif vif;
+   virtual ram_if vif;
    mailbox scb_mbx;
    semaphore sema;
 
@@ -38,7 +38,7 @@ class monitor;
          trans.din_1 = `MON_IF.din_1;
          mon_mbx.put(trans);
          sema.put(2);
-         $display("T=%0t [Monitor] Data and Address Fetch  ".$time);
+        $display("T=%0t [Monitor] Data and Address Fetch  ",$time);
          @(posedge vif.MONITOR.clk);
       end // forever begin
    endtask // fetch
@@ -51,7 +51,7 @@ class monitor;
          @(posedge vif.MONITOR.clk);
          trans.dout_0 = `MON_IF.dout_0;
          trans.dout_1 = `MON_IF.dout_1;
-         $display("T=%0t [Monitor] Data Excute    dout_0 = 0x%0h dout_1 = 0x%0h",$time,dout_0,dout_1);
+        $display("T=%0t [Monitor] Data Excute    dout_0 = 0x%0h dout_1 = 0x%0h",$time,trans.dout_0,trans.dout_1);
          scb_mbx.put(trans);
          sema.put(1);
       end // forever begin

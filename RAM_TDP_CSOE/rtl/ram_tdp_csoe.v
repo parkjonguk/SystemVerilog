@@ -1,4 +1,9 @@
-module ram_tdp_csoe (/*AUTOARG*/ ) ;
+module ram_tdp_csoe (/*AUTOARG*/
+   // Outputs
+   dout_0, dout_1,
+   // Inputs
+   clk, cs_0, oe_0, we_0, addr_0, din_0, cs_1, oe_1, we_1, addr_1, din_1
+   ) ;
    parameter DWIDTH =8;
    parameter AWIDTH = 4;
    parameter RDEPTH = 1<< AWIDTH;

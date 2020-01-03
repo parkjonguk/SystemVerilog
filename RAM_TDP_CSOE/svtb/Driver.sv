@@ -29,7 +29,7 @@ class driver;
       $display ("T=%0t [Driver] Starting...");
       forever begin
          transaction trans;
-         $display("T=%0t [Driver] waiting for trans....",%time);
+        $display("T=%0t [Driver] waiting for trans....",$time);
          drv_mbx.get(trans);
          trans.print("Driver");
          @(posedge vif.DRIVER.clk);

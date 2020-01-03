@@ -4,7 +4,7 @@ class generator;
    int     num ;
    rand transaction trans;
 
-   function new(mailbox drv_mbx,evemt drv_done);
+  function new(mailbox drv_mbx,event drv_done);
       this.drv_mbx = drv_mbx;
       this.drv_done = drv_done;
    endfunction // new

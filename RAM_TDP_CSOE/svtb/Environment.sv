@@ -1,12 +1,12 @@
 `include "Transaction.sv"
-`include "Generation.sv"
+`include "Generator.sv"
 `include "Driver.sv"
 `include "Monitor.sv"
 `include "Scoreboard.sv"
 
 class environment;
    driver d0;
-   generation g0;
+   generator g0;
    monitor m0;
    scoreboard s0;
    mailbox drv_mbx;
@@ -14,7 +14,7 @@ class environment;
    event   drv_done;
    virtual ram_if vif;
 
-   function new(virtual ram_if vif);
+  function new(virtual ram_if vif);
       this.vif = vif;
       drv_mbx = new();
       scb_mbx = new();
